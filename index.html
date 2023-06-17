@@ -47,7 +47,8 @@
     <nav class="navbar navbar-expand-lg custom-nav navbar-light fixed-top sticky">
         <div class="container">
             <a class="navbar-brand pt-0 logo" href="#">
-                The Code Wolf
+                <img src="images/logo.png" alt="" class="img-fluid logo-light">
+                <img src="images/logo-dark.png" alt="" class="img-fluid logo-dark">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,7 +117,7 @@
                     <div class="mt-3">
                         <h2><span class="fw-bold">About</span> Me</h2>
                         <h4 class="mt-4">Hello! <span class="text-custom fw-bold">I'm Alex Wolf.</span></h4>
-                        <p class="text-muted mt-2">I am passionate about Software Development and am eager to learn and teach all I can about this vast subject.  I work primarily with .NET and Azure Cloud technologies to build web applications for small and enterprise companies. I'm also proficient in React and Node, Python, as well as Android. Lately I have also worked quite a bit with DevOps technologies. I also enjoy creating online training courses, videos, and articles on these topics.</p>
+                        <p class="text-muted mt-2">I work as a content developer at Microsoft. I am passionate about Software Development and am eager to learn and teach all I can about this vast subject.  I work primarily with .NET and Azure Cloud technologies to build web applications for small and enterprise companies. I'm also proficient in React and Node, Python, as well as Android. Lately I have also worked quite a bit with DevOps technologies. I also enjoy creating online training courses, videos, and articles on these topics.</p>
                         <div>
                             <ul class="mb-0 about-social list-inline mt-4">
                                 <li class="list-inline-item"><a href="https://www.linkedin.com/in/alexrudiwolf/"><i class="mdi mdi-linkedin"></i></a></li>
@@ -161,7 +162,7 @@
                         <div class="mt-4">
                             <h5 class="mb-0">Cloud</h5>
                             <div class="services-title-border"></div>
-                            <p class="text-muted mt-3">My head is in the cloud. I believe it simplifies life for developers and businesses while reducing costs.</p>
+                            <p class="text-muted mt-3">My head is in the cloud. I believe the cloud simplifies life for developers and businesses while reducing costs.</p>
                         </div>
                     </div>
                 </div>
@@ -173,7 +174,7 @@
                         <div class="mt-4">
                             <h5 class="mb-0">Content</h5>
                             <div class="services-title-border"></div>
-                            <p class="text-muted mt-3">I love creating content and technical training, both video and written - check out my portfolio below!</p>
+                            <p class="text-muted mt-3">I have always enjoyed creating content and technical training, both video and written - check out my portfolio below!</p>
                         </div>
                     </div>
                 </div>
@@ -205,7 +206,7 @@
                             </div>
                             <div class="mt-3">
                                 <p class="mt-3 desc_blog text-muted">To view my work history just check out my LinkedIn profile.</p>
-                                <p class="h6 mb-0"><a href="https://www.linkedin.com/in/alexrudiwolf/" class="fw-bold btn btn-custom text-uppercase">View Profile</a></p>
+                                <p class="h6 mb-0"><a target="_blank" href="https://www.linkedin.com/in/alexrudiwolf/" class="fw-bold btn btn-custom text-uppercase">View Profile</a></p>
                             </div>
                         </div>
                     </div>
@@ -221,7 +222,7 @@
                             </div>
                             <div class="mt-3">
                                 <p class="mt-3 desc_blog text-muted">I've created online video training for Pluralsight for nearly a decade.</p>
-                                <p class="h6 mb-0"><a href="https://app.pluralsight.com/profile/author/alex-wolf" class="fw-bold btn btn-custom text-uppercase">View Training</a></p>
+                                <p class="h6 mb-0"><a target="_blank" href="https://app.pluralsight.com/profile/author/alex-wolf" class="fw-bold btn btn-custom text-uppercase">View Training</a></p>
                             </div>
                         </div>
                     </div>
@@ -237,7 +238,7 @@
                             </div>
                             <div class="mt-3">
                                 <p class="mt-3 desc_blog text-muted">Lately I've been dabbling in YouTube content - check it out!</p>
-                                <p class="h6 mb-0"><a href="https://www.youtube.com/channel/UCiNpRUgrAx3tuTOG-VAmbrA" class="fw-bold btn btn-custom text-uppercase">YouTube Channel</a></p>
+                                <p class="h6 mb-0"><a target="_blank" href="https://www.youtube.com/channel/UCiNpRUgrAx3tuTOG-VAmbrA" class="fw-bold btn btn-custom text-uppercase">YouTube Channel</a></p>
                             </div>
                         </div>
                     </div>
@@ -273,7 +274,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group mt-2">
-                                        <input required name="email" id="email" class="form-control"
+                                        <input required name="email" id="email" type="email" class="form-control"
                                             placeholder="Your email...">
                                     </div>
                                 </div>
@@ -375,12 +376,12 @@
 
                 $.ajax({
                     type: "POST",
-                    dataType:'json',
                     url: "https://prod-29.centralus.logic.azure.com:443/workflows/56353ad0e7eb4150bb708f7f04b0b081/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=uWA6dPKfyumr36_PaskPUeVWq9JjNo2A1cimuY274JI",
                     data: JSON.stringify(json),
                     contentType: 'application/json; charset=utf-8',
                     success: function () {
-                        alert('submitted!')
+                        alert('Thank you, your request has been submitted!')
+                        $("#working_form").trigger("reset");
                     }
                 })
 
