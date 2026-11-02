@@ -362,12 +362,50 @@ strong {
     padding: calc(var(--nav-h) + .5rem) 0 3.5rem;
 }
 
+/* Hero background resolution ladder.
+   A `cover` background needs roughly (viewport width x DPR) real pixels, so the
+   tier is chosen by both. The 4K file is 627 KB and only ever reaches screens
+   that can actually resolve it; a 1x laptop gets 233 KB.
+   NOTE: the preload <link> tags in index.html mirror these exact breakpoints —
+   change both together or the hero downloads twice. */
 .hero__bg {
     position: absolute;
     inset: 0;
-    background: url("../images/city.jpg") center 35% / cover no-repeat;
+    background-position: center 35%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* fallback for no image-set support */
+    background-image: url("../images/city-1920.webp");
+    background-image: -webkit-image-set(url("../images/city-1920.webp") 1x,
+            url("../images/city-2560.webp") 2x);
+    background-image: image-set(url("../images/city-1920.webp") 1x,
+            url("../images/city-2560.webp") 2x);
     filter: grayscale(.55) saturate(.7) brightness(.3) contrast(1.05);
     transform: scale(1.06);
+}
+
+@media (min-width: 1024px) {
+    .hero__bg {
+        background-image: -webkit-image-set(url("../images/city-1920.webp") 1x,
+                url("../images/city-3840.webp") 2x);
+        background-image: image-set(url("../images/city-1920.webp") 1x,
+                url("../images/city-3840.webp") 2x);
+    }
+}
+
+@media (min-width: 1600px) {
+    .hero__bg {
+        background-image: -webkit-image-set(url("../images/city-2560.webp") 1x,
+                url("../images/city-3840.webp") 2x);
+        background-image: image-set(url("../images/city-2560.webp") 1x,
+                url("../images/city-3840.webp") 2x);
+    }
+}
+
+@media (min-width: 2100px) {
+    .hero__bg {
+        background-image: url("../images/city-3840.webp");
+    }
 }
 
 /* Teal-tinted wash so the bright daytime photo reads as a dark surface */
@@ -598,6 +636,10 @@ strong {
     border-radius: 50%;
     background: var(--accent-glow);
     filter: blur(60px);
+}
+
+.about__frame picture {
+    display: block;
 }
 
 .about__frame img {

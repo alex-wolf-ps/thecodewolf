@@ -26,6 +26,19 @@
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
 
+    <!-- Hero background is a CSS background, so the browser can't discover it until
+         styles.css parses. These preloads mirror the .hero__bg breakpoints exactly —
+         keep them in sync with css/styles.css or the hero downloads twice. -->
+    <link rel="preload" as="image" href="images/city-1920.webp"
+        imagesrcset="images/city-1920.webp 1x, images/city-2560.webp 2x" media="(max-width: 1023px)">
+    <link rel="preload" as="image" href="images/city-1920.webp"
+        imagesrcset="images/city-1920.webp 1x, images/city-3840.webp 2x"
+        media="(min-width: 1024px) and (max-width: 1599px)">
+    <link rel="preload" as="image" href="images/city-2560.webp"
+        imagesrcset="images/city-2560.webp 1x, images/city-3840.webp 2x"
+        media="(min-width: 1600px) and (max-width: 2099px)">
+    <link rel="preload" as="image" href="images/city-3840.webp" media="(min-width: 2100px)">
+
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -102,8 +115,11 @@
             <div class="container about">
                 <div class="about__media reveal">
                     <div class="about__frame">
-                        <img src="images/profile.png" alt="Portrait of Alex Wolf" width="512" height="512"
-                            loading="lazy">
+                        <picture>
+                            <source srcset="images/profile.webp" type="image/webp">
+                            <img src="images/profile.png" alt="Portrait of Alex Wolf" width="512" height="512"
+                                loading="lazy" decoding="async">
+                        </picture>
                     </div>
                     <div class="about__badge">
                         <span class="about__badge-num">10+</span>

@@ -12,7 +12,7 @@
   "routes": [
     {
       "route": "/images/*",
-      "headers": { "cache-control": "public, max-age=31536000, immutable" }
+      "headers": { "cache-control": "public, max-age=2592000" }
     },
     {
       "route": "/css/*",
