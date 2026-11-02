@@ -949,91 +949,108 @@ strong {
     font-size: 1.03rem;
 }
 
-/* Experience rows — horizontal, timeline-ish, denser than the cards below */
+/* Compact experience tiles — just the basics; LinkedIn carries the detail. */
+.exp-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: clamp(3rem, 6vw, 4.5rem) 0 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.exp-head__title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.exp-head__link {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .93rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color .22s var(--ease);
+}
+
+.exp-head__link:hover {
+    color: var(--accent);
+}
+
+.exp-head__link svg {
+    width: 15px;
+    height: 15px;
+    transition: transform .22s var(--ease);
+}
+
+.exp-head__link:hover svg {
+    transform: translate(2px, -2px);
+}
+
 .exp {
     display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
-    margin: 0 0 1.75rem;
+    margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.exp__row {
-    display: grid;
-    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-    gap: 1.5rem 2rem;
-    padding: 1.6rem 1.75rem;
+.exp__item {
+    display: flex;
+    flex-direction: column;
+    padding: 1.4rem 1.3rem;
     border: 1px solid var(--line);
-    border-left: 2px solid rgba(61, 218, 215, .35);
-    border-radius: var(--radius);
+    border-top: 2px solid rgba(61, 218, 215, .35);
+    border-radius: var(--radius-sm);
     background: var(--surface);
-    transition: border-left-color .3s var(--ease), background-color .3s var(--ease),
+    transition: border-top-color .3s var(--ease), background-color .3s var(--ease),
         transform .3s var(--ease);
 }
 
-.exp__row:hover {
-    border-left-color: var(--accent);
+.exp__item:hover {
+    border-top-color: var(--accent);
     background: var(--surface-2);
-    transform: translateX(4px);
-}
-
-.exp__company {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: .55rem;
+    transform: translateY(-4px);
 }
 
 .exp__industry {
-    display: inline-block;
-    padding: .2rem .7rem;
-    border: 1px solid rgba(61, 218, 215, .3);
+    align-self: flex-start;
+    margin-bottom: .9rem;
+    padding: .18rem .65rem;
     border-radius: 999px;
-    background: rgba(61, 218, 215, .07);
+    background: rgba(61, 218, 215, .1);
     color: var(--accent);
-    font-size: .76rem;
+    font-size: .7rem;
     font-weight: 600;
-    letter-spacing: .06em;
+    letter-spacing: .09em;
     text-transform: uppercase;
 }
 
-.exp__former {
-    display: block;
-    margin-top: .5rem;
-    color: var(--text-dim);
-    font-size: .82rem;
-    font-style: italic;
+.exp__company {
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: .45rem;
 }
 
 .exp__role {
-    margin: 0 0 .5rem;
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text);
+    margin: 0 0 .9rem;
+    color: var(--text-muted);
+    font-size: .92rem;
+    line-height: 1.45;
 }
 
 .exp__dates {
-    display: block;
-    margin-top: .3rem;
-    font-family: var(--font-body);
-    font-size: .86rem;
+    margin: auto 0 0;
+    color: var(--text-dim);
+    font-size: .85rem;
     font-weight: 500;
-    color: var(--text-dim);
-    letter-spacing: .02em;
-}
-
-.exp__text {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.exp__note {
-    margin: 0 0 3rem;
-    text-align: center;
-    color: var(--text-dim);
-    font-size: .95rem;
+    font-variant-numeric: tabular-nums;
 }
 
 /* Work cards */
@@ -1266,6 +1283,18 @@ strong {
     transition-delay: .2s;
 }
 
+.exp .reveal:nth-child(2) {
+    transition-delay: .07s;
+}
+
+.exp .reveal:nth-child(3) {
+    transition-delay: .14s;
+}
+
+.exp .reveal:nth-child(4) {
+    transition-delay: .21s;
+}
+
 /* --------------------------------------------------------------------------
    12. Responsive
    -------------------------------------------------------------------------- */
@@ -1305,10 +1334,8 @@ strong {
         text-align: left;
     }
 
-    .exp__row {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        text-align: left;
+    .exp {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -1316,6 +1343,10 @@ strong {
     .ai__item {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .exp {
+        grid-template-columns: 1fr;
     }
 }
 
