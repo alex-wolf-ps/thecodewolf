@@ -480,7 +480,8 @@ strong {
     min-height: 1.2em;
 }
 
-.typed {
+/* The article ("a" / "an") stays in the heading colour; only the role is tinted. */
+.typed__role {
     background: var(--accent-grad);
     -webkit-background-clip: text;
     background-clip: text;

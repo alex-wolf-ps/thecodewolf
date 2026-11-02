@@ -14,17 +14,33 @@
         var el = document.getElementById('typed');
         if (!el) return;
 
+        var lead = el.querySelector('.typed__lead');
+        var role = el.querySelector('.typed__role');
+        if (!lead || !role) return;
+
+        // [article, role]: the article renders outside the tinted span.
         var phrases = [
-            'Alex Wolf.',
-            'a Software Developer.',
-            'a Cloud Architect.',
-            'an AI Engineer.',
-            'a Technical Trainer.',
-            'a Content Creator.'
+            ['', 'Alex Wolf.'],
+            ['a ', 'Software Developer.'],
+            ['a ', 'Cloud Architect.'],
+            ['an ', 'AI Engineer.'],
+            ['a ', 'Technical Trainer.'],
+            ['a ', 'Content Creator.']
         ];
 
+        function lengthOf(phrase) {
+            return phrase[0].length + phrase[1].length;
+        }
+
+        function render(phrase, count) {
+            lead.textContent = phrase[0].slice(0, count);
+            role.textContent = count > phrase[0].length
+                ? phrase[1].slice(0, count - phrase[0].length)
+                : '';
+        }
+
         if (reduceMotion) {
-            el.textContent = phrases[0];
+            render(phrases[0], lengthOf(phrases[0]));
             return;
         }
 
@@ -33,11 +49,11 @@
 
         (function tick() {
             var phrase = phrases[index];
-            el.textContent = phrase.slice(0, chars);
+            render(phrase, chars);
 
             var delay;
             if (!erasing) {
-                if (chars < phrase.length) {
+                if (chars < lengthOf(phrase)) {
                     chars++;
                     delay = TYPE;
                 } else {
