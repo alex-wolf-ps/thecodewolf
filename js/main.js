@@ -16,10 +16,10 @@
 
         var phrases = [
             'Alex Wolf.',
-            'an AI Engineer.',
             'a Software Developer.',
             'a Cloud Architect.',
-            'an AI Trainer.',
+            'an AI Engineer.',
+            'a Technical Trainer.',
             'a Content Creator.'
         ];
 
