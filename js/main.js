@@ -1,5 +1,5 @@
 /* =========================================================================
-   The Code Wolf — site behavior
+   The Code Wolf - site behavior
    No dependencies. Everything degrades gracefully without JS.
    ========================================================================= */
 (function () {
@@ -166,7 +166,7 @@
     })();
 
     /* ---------------------------------------------------------------------
-       Contact form — AJAX submit to Formspree
+       Contact form - AJAX submit to Formspree
        Falls back to a normal form POST if fetch is unavailable.
        --------------------------------------------------------------------- */
     (function contactForm() {
@@ -259,7 +259,7 @@
                 .then(function (res) {
                     if (res.ok) {
                         form.reset();
-                        setStatus('Thanks! Your message is on its way — I\'ll get back to you soon.', 'is-ok');
+                        setStatus('Thanks! Your message is on its way. I\'ll get back to you soon.', 'is-ok');
                         return;
                     }
                     return res.json().then(function (data) {
@@ -270,7 +270,7 @@
                     });
                 })
                 .catch(function (err) {
-                    setStatus(err.message || 'Network error — please try again, or reach out on LinkedIn.', 'is-err');
+                    setStatus(err.message || 'Network error. Please try again, or reach out on LinkedIn.', 'is-err');
                 })
                 .finally(function () {
                     if (submit) submit.disabled = false;

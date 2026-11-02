@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The Code Wolf — Alex Wolf
+   The Code Wolf - Alex Wolf
    Dark theme, turquoise accent. Single page.
    ========================================================================== */
 
@@ -7,7 +7,7 @@
    1. Tokens
    -------------------------------------------------------------------------- */
 :root {
-    /* Surfaces — deep ink base, slightly cool */
+    /* Surfaces - deep ink base, slightly cool */
     --bg: #080b10;
     --bg-alt: #0c1017;
     --surface: #111722;
@@ -20,7 +20,7 @@
     --text-muted: #93a3b5;
     --text-dim: #6c7c8e;
 
-    /* Accent — turquoise into baby blue */
+    /* Accent - turquoise into baby blue */
     --accent: #3ddad7;
     --accent-soft: #7ae7e3;
     --accent-blue: #7cc9f0;
@@ -366,7 +366,7 @@ strong {
    A `cover` background needs roughly (viewport width x DPR) real pixels, so the
    tier is chosen by both. The 4K file is 627 KB and only ever reaches screens
    that can actually resolve it; a 1x laptop gets 233 KB.
-   NOTE: the preload <link> tags in index.html mirror these exact breakpoints —
+   NOTE: the preload <link> tags in index.html mirror these exact breakpoints -
    change both together or the hero downloads twice. */
 .hero__bg {
     position: absolute;
@@ -759,7 +759,7 @@ strong {
 }
 
 /* --------------------------------------------------------------------------
-   7b. AI band — deliberately NOT the 3-up card grid, so it reads as a
+   7b. AI band - deliberately NOT the 3-up card grid, so it reads as a
        headline statement rather than another row of features.
    -------------------------------------------------------------------------- */
 #ai {
@@ -949,7 +949,7 @@ strong {
     font-size: 1.09rem;
 }
 
-/* Compact experience tiles — just the basics; LinkedIn carries the detail. */
+/* Compact experience tiles - just the basics; LinkedIn carries the detail. */
 .exp-head {
     display: flex;
     align-items: baseline;
